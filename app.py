@@ -7,4 +7,4 @@ def hello_world():
 
 @app.route("/about")
 def about():
-    return "This is paiza"
+    return render_template("another.html")
