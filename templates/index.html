@@ -7,10 +7,10 @@
         <style>body {padding: 10px;}</style>
     </head>
     <body>
-        {% if Hello %}
-            <h1>{{Hello}} Python</h1>
-        {% else %}
-            <p>Hello World!!</p>
-        {% endif %}
+        {% for mesi in tabetai: %}
+            <h2>{{"「腹減った～"+ mesi +"が食べたいなぁ」"}}</h2>
+        {% endfor %}
+
+
     </body>
 </html>
