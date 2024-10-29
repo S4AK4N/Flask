@@ -3,8 +3,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return render_template("index.html")
+
+    hello = "hello"
+
+    return render_template("index.html",hello = hello)
 
 @app.route("/about")
 def about():
-    return render_template("another.html")
+    nemui = "ねむい"
+    return render_template("another.html",nemui = nemui)
+
+#TODO:チャプター5を進める(HTMLに変数受け渡し)
