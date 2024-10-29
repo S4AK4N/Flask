@@ -10,12 +10,16 @@
 .
 ├── Dockerfile
 ├── README.md
+├── __pycache__
+│   └── app.cpython-312.pyc
 ├── app.py
 ├── docker-compose.yml
 ├── requirements.txt
 └── templates
-    ├── another.html
-    └── index.html
+    ├── eat.html
+    ├── index.html
+    ├── layout.html
+    └── walk.html
 ```
 ## 環境構築方法
 Docker Desktop,Gitがインストール済みの前提でお話します。
