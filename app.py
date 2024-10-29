@@ -4,9 +4,9 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
 
-    tabetai = ["肉","寿司","メロンパン"]
+    savas  = "さばす"
 
-    return render_template("index.html",tabetai = tabetai)
+    return render_template("index.html",savas = savas)
 
 @app.route("/about")
 def about():
