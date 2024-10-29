@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 app = Flask(__name__)
 
 savas  = "さばす"
@@ -10,6 +10,12 @@ def show():
 
     return render_template("form.html",savas = savas)
 
+@app.route("/result",methods =["POST"])
+def result():
+    name = request.form["name"]
+    text = request.form["text"]
+
+    return render_template("form.html",savas=savas,name=name,text=text)
 @app.route("/about")
 def about():
     nemui = "ねむい"
