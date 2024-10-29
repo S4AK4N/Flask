@@ -3,19 +3,19 @@ app = Flask(__name__)
 
 savas  = "さばす"
 
-#NOTE:
+# NOTE:routeにアクセスした時
 @app.route("/")
 def top():
 
     return render_template("index.html",savas=savas)
 
-#NOTE:routeにアクセスした時
+# NOTE:routeにアクセスした時
 @app.route("/form")
 def show():
 
     return render_template("form.html",savas = savas)
 
-#NOTE:form.htmlでtext,nameがsubmitで押された時,/resultを走らせるようにした
+# NOTE:form.htmlでtext,nameがsubmitで押された時,/resultを走らせるようにした
 @app.route("/result",methods =["POST"])
 def result():
     name = request.form["name"]
@@ -27,7 +27,7 @@ def about():
     nemui = "ねむい"
     return render_template("another.html",nemui = nemui)
 
-
+# NOTE:walkにアクセスした時
 @app.route("/walk")
 def walk():
     message = savas + "は歩いてるよ～"
