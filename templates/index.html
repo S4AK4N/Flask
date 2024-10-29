@@ -1,16 +1,7 @@
-
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>Flask - paiza</title>
-        <style>body {padding: 10px;}</style>
-    </head>
+{% extends "layout.html" %}
+{% block content %}
     <body>
         {% for mesi in tabetai: %}
             <h2>{{"「腹減った～"+ mesi +"が食べたいなぁ」"}}</h2>
         {% endfor %}
-
-
-    </body>
-</html>
+{% endblock %}
