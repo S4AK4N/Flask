@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ savas }}のフォーム</h1>
+<form action="/result" method ="post">
+    <p></p>
+    <label for ="article">投稿</label>
+    <input type="text" name ="article">
+    <p></p>
+    <label for = "name">名前</label>
+    <input type = "text" name = name>
+    <p></p>
+    <button type ="submit">送信する</button>
+</form>
+{% endblock %}

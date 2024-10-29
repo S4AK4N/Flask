@@ -4,11 +4,11 @@ app = Flask(__name__)
 savas  = "さばす"
 
 @app.route("/")
-def hello_world():
+def show():
 
     
 
-    return render_template("index.html",savas = savas)
+    return render_template("form.html",savas = savas)
 
 @app.route("/about")
 def about():
@@ -24,4 +24,6 @@ def walk():
 def eat():
     foodlist = ["りんご","みかん","メロン"]
     return render_template("eat.html",savas=savas , foodlist = foodlist)
+
+
 #TODO:チャプター5を進める(HTMLに変数受け渡し)
