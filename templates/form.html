@@ -1,15 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>{{ savas }}のフォーム</h1>
-<form action="/result" method ="post">
+<h1>内容投稿フォーム</h1>
+<form action="/result" method="post">
+    <label for="name">名前</label>
+    <select name="name">
+        {% for name in names %}
+            <option value="{{ name }}">{{ name }}</option>
+        {% endfor %}
+    </select>
     <p></p>
-    <label for ="text">投稿</label>
-    <input type="text" name ="text">
-    <p></p>
-    <label for = "name">名前</label>
-    <input type = "text" name = "name">
-    <p></p>
-    <button type ="submit">送信する</button>
+    <label for="article">投稿</label>
+    <input type="text" name="article">
+    <button type="submit">送信する</button>
 </form>
-<p>{{  name  }}  {{  text  }}</p>
+
+<p><a href="/form">フォームへ</a>
+<p><a href="/">Topページへ</a>
+<p><a href="/past">過去投稿へ</a>
+
 {% endblock %}

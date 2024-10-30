@@ -1,43 +1,45 @@
 from flask import Flask, render_template,request
+import codecs
 app = Flask(__name__)
 
-savas  = "さばす"
-
+names = ["さばす","TanakaMasahiko","KawaiShinzoV2"]
+savas = "さばす"
 # NOTE:routeにアクセスした時
 @app.route("/")
 def top():
 
     return render_template("index.html",savas=savas)
 
-# NOTE:routeにアクセスした時
+# NOTE:/formにアクセスした時
 @app.route("/form")
 def show():
 
-    return render_template("form.html",savas = savas)
+    return render_template("form.html",names = names)
 
 # NOTE:form.htmlでtext,nameがsubmitで押された時,/resultを走らせるようにした
-@app.route("/result",methods =["POST"])
+@app.route("/result", methods=["GET", "POST"])
 def result():
-    name = request.form["name"]
-    text = request.form["text"]
 
-    return render_template("form.html",savas=savas,name=name,text=text)
-@app.route("/about")
-def about():
-    nemui = "ねむい"
-    return render_template("another.html",nemui = nemui)
+    # POSTメソッドの場合
+    if request.method == "POST":
+        name = request.form["name"]
+        text = request.form["article"]  
+    # GETメソッドの場合
+    else:
+        name = request.args.get("name")
+        text = request.args.get("text")
 
-# NOTE:walkにアクセスした時
-@app.route("/walk")
-def walk():
-    message = savas + "は歩いてるよ～"
-    return render_template("walk.html",savas = savas , message = message)
+    return render_template("form_result.html", name=name, text=text)
 
-#NOTE:/eatにアクセスした時,以下の内容を送信した,eat.htmlをブラウザに表示
-@app.route("/eat")
-def eat():
-    foodlist = ["りんご","みかん","メロン"]
-    return render_template("eat.html",savas=savas , foodlist = foodlist)
+@app.route("/past",methods = ["GET"])
+def past():
+
+    file = codecs.open("text.text","r","UTF-8")
+    pasts = file.readlines()
+    file.close()
+    
+    return render_template("form_past.html",pasts=pasts)
+
 
 
 #TODO:チャプター5を進める(HTMLに変数受け渡し)
