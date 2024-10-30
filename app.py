@@ -16,12 +16,21 @@ def show():
     return render_template("form.html",savas = savas)
 
 # NOTE:form.htmlでtext,nameがsubmitで押された時,/resultを走らせるようにした
-@app.route("/result",methods =["POST"])
+@app.route("/result",methods =["GET","POST"])
 def result():
-    name = request.form["name"]
-    text = request.form["text"]
+    
+    # POSTメソッドが戻り値だった時 
+    if request.method == "POST":
 
+        name = request.form["name"]
+        text = request.form["text"]
+    #GETメソッドだった時
+    else:
+        name = request.args.get("name")
+        text = request.args.get("text")
     return render_template("form.html",savas=savas,name=name,text=text)
+
+
 @app.route("/about")
 def about():
     nemui = "ねむい"
