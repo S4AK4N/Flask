@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>内容投稿フォーム</h1>
+<h1>掲示板投稿フォーム</h1>
 <form action="/result" method="post">
     <label for="name">名前</label>
     <select name="name">
@@ -17,5 +17,6 @@
 <p><a href="/form">フォームへ</a>
 <p><a href="/">Topページへ</a>
 <p><a href="/past">過去投稿へ</a>
+    <p><a href="/name_registration">名前登録フォームへ</a>
 
 {% endblock %}
