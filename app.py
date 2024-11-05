@@ -72,6 +72,3 @@ def registration():
     
 
     return render_template("name_result.html",names = names)
-
-
-#TODO:チャプター5を進める(HTMLに変数受け渡し)

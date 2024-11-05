@@ -1,16 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1>名前登録フォーム</h1>
-
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 <form action="/registration" method="post">
-    <label for="article">名前を入力して下さい</label>
-    <input type="text" name="names">
+    <label for="names">名前を入力してください</label>
+    <input type="text" name="names" id="names" required>
     <p></p>
     <button type="submit">送信する</button>
 </form>
+
 <p></p>
-<form action ="/form">
-    <button type = "submit">戻る</button>
+
+<form action="/form" method="get">
+    <button type="submit">戻る</button>
 </form>
 
 {% endblock %}

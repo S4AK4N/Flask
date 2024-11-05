@@ -1,5 +1,0 @@
-
-aaaaa,さばす
-vvv,TanakaMasahiko
-あああ,あ
-名前登録成功,さばす
