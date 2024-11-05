@@ -1,0 +1,36 @@
+/* 全体のスタイル */
+body {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+/* タイトル（h1）のスタイル */
+h1 {
+    font-size: 2em;
+    color: #007acc;
+    margin-top: 20px;
+}
+
+/* 段落とリンク（p, a）のスタイル */
+p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 20px 0;
+}
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #005fa3;
+}

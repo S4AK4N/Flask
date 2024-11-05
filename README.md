@@ -15,11 +15,13 @@
 ├── app.py
 ├── docker-compose.yml
 ├── requirements.txt
-└── templates
-    ├── eat.html
-    ├── index.html
-    ├── layout.html
-    └── walk.html
+├── templates
+│   ├── form.html
+│   ├── form_past.html
+│   ├── form_result.html
+│   ├── index.html
+│   └── layout.html
+└── text.text
 ```
 ## 環境構築方法
 Docker Desktop,Gitがインストール済みの前提でお話します。
@@ -36,4 +38,6 @@ Docker Desktop,Gitがインストール済みの前提でお話します。
 <br>
 <br>仕様等を変更したいときは再ビルドするようにしてください。
 <br>
+<br>また今回はローカルサーバのみを想定しています。5000ポートを使用してローカルに開放しています
+
 <br><strong>コンテナ起動 = サーバ起動と考えていただいて結構です</strogn>
