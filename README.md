@@ -32,13 +32,13 @@
 │       ├── form.css
 │       └── styles.css
 ├── templates →　作成したページのHTMLたち
-│   ├── form.html
-│   ├── form_past.html
-│   ├── form_result.html
-│   ├── index.html
-│   ├── layout.html
-│   ├── name_registration.html
-│   └── name_result.html
+│   ├── form.html →　フォーム投稿ページ
+│   ├── form_past.html →　過去投稿一覧表示ページ
+│   ├── form_result.html　→ 投稿確認ページ
+│   ├── index.html →　トップページ
+│   ├── layout.html →　テンプレート
+│   ├── name_registration.html →　名前登録をページ
+│   └── name_result.html →　名前登録確認ページ
 └── text.txt　→投稿等書き込み用
 ```
 ## 環境構築方法
@@ -63,4 +63,7 @@ Docker Desktop,Gitがインストールをお願いします。インストー�
 
 ### 注意点
 <br> 今作では技量的にデータベースを連携することができなかったので投稿,名前登録などに関するセキュリティ面,利便性がかなり低くなっています。
-<br>そのため,<strong>本番環境では使用しないでください。</strong>あくまで練習用です。
+<br>そのため,<strong>本番環境では使用しないでください</strong>あくまで練習用です。
+
+### 個人的な課題点など
+<br> qiitaにて記事を書いておりますので<a href=>こちら</a>で御覧ください
