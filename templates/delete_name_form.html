@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>名前削除</h1>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    label {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #555;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<form action="/delete_name" method="post">
+    <label for="names">名前を入力してください</label>
+    <input type="text" name="name" id="names" required>
+    <button type="submit">送信する</button>
+</form>
+
+<p style="text-align: center;">または</p>
+
+<form action="/form" method="get" style="text-align: center;">
+    <button type="submit">戻る</button>
+</form>
+{% endblock %}

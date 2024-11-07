@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>名前が登録されていないため削除できません</h1>
+<p> 名前：{{name}}</p>
+
+<form action ="/form" method="get">
+    <button type="submit">戻る</button>
+</form>
+
+
+
+{% endblock %}
