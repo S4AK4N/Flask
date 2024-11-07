@@ -19,27 +19,31 @@
 ## ディレクトリ構成(現状)
 ```
 .
-├── Dockerfile(コンテナ環境)
-├── README.md
+├── Dockerfile # Docker環境
+├── README.md 
 ├── __pycache__
 │   └── app.cpython-312.pyc
-├── app.py→サーバーの処理(バックエンド)
-├── docker-compose.yml（Docker起動用)
-├── names.txt
-├── requirements.txt(必要モジュールダウンロード用)
-├── static　→静的ファイル
+├── app.py # サーバー処理記述
+├── docker-compose.yml
+├── names.txt　# 入力された名前記述(データーベース代わり)
+├── requirements.txt # 本環境の必要ライブラリ等
+├── static # 静的ファイル置き場
 │   └── css
-│       ├── form.css
+│       ├── form.css 
 │       └── styles.css
-├── templates →　作成したページのHTMLたち
-│   ├── form.html →　フォーム投稿ページ
-│   ├── form_past.html →　過去投稿一覧表示ページ
-│   ├── form_result.html　→ 投稿確認ページ
-│   ├── index.html →　トップページ
-│   ├── layout.html →　テンプレート
-│   ├── name_registration.html →　名前登録をページ
-│   └── name_result.html →　名前登録確認ページ
-└── text.txt　→投稿等書き込み用
+├── templates # 各ページ置き場
+│   ├── Error.html # エラー発生時遷移するページ
+│   ├── cant_delete_name.html # 削除したい名前がなかった時表示するページ
+│   ├── delete_name_form.html # 名前削除フォーム
+│   ├── form.html # 内容投稿フォーム               
+│   ├── form_past.html # 過去に投稿した内容を表示するフォーム
+│   ├── form_result.html   # 内容投稿をした際に投稿内容を表示するページ
+│   ├── index.html # トップページ
+│   ├── layout.html # テンプレート
+│   ├── name_registration.html # 名前登録フォーム
+│   ├── name_result.html    # 登録(送信)した名前を表示するページ
+│   └── success_delete_name.html # 正常に名前が削除できた際に表示するページ
+└── text.txt
 ```
 ## 環境構築方法
 Docker Desktop,Gitがインストールをお願いします。インストール方法は割愛致します。
