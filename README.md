@@ -58,6 +58,7 @@ Docker DesktopとGitがインストールされていることが前提です。
 
 本リポジトリをクローンして、コンテナを作成します。
 
+コンテナビルド用
 ```bash
 docker-compose build
 ```
