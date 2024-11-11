@@ -61,6 +61,11 @@ Docker DesktopとGitがインストールされていることが前提です。
 ```bash
 docker-compose build
 ```
+
+コンテナ起動用
+```bash
+docker-compose up
+```
 うまく起動できたら、ローカルホストが立ち上がり、成功です。
 ### 3. 仕様変更後の再ビルド
 
