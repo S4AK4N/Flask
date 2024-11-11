@@ -15,12 +15,16 @@
                 {% for past in pasts %}
                     {% set column = past.rstrip().split(",") %}
                     <tr>
-                        {% for item in column %}
-                            <td>{{ item.strip() }}</td>
-                        {% endfor %}
+                        <td>{{ column[1].strip() }}</td>  <!-- 投稿内容 -->
+                        <td>{{ column[0].strip() }}</td>  <!-- 名前 -->
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+
+        <!-- 戻るボタン -->
+        <div class="text-center mt-4">
+            <a href="javascript:history.back()" class="btn btn-primary">戻る</a>
+        </div>
     </div>
 {% endblock %}
