@@ -1,13 +1,17 @@
 {% extends "layout.html" %}
+
 {% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center text-danger mb-4">エラー発生</h1>
+        
+        <div class="alert alert-danger">
+            <p>申し訳ございません。<strong>{{ Error }}</strong></p>
+        </div>
 
-<h1>エラー発生</h1>
-<p>申し訳ございません。{{ Error }}</p>
-
-
-<form action ="/form" method="get">
-    <button type="submit">戻る</button>
-</form>
-
-
+        <div class="text-center">
+            <form action="/form" method="get">
+                <button type="submit" class="btn btn-primary">戻る</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

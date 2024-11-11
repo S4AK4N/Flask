@@ -1,9 +1,17 @@
 {% extends "layout.html" %}
-{% block content %}
-    <h1>登録しました</h1>
-    <p> 登録名：{{names}}</p>
 
-    <form action ="/form" method="get">
-        <button type="submit">戻る</button>
-    </form>
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center text-success mb-4">登録しました</h1>
+
+        <div class="alert alert-info text-center">
+            <p><strong>登録名：</strong>{{ names }}</p>
+        </div>
+
+        <div class="text-center">
+            <form action="/form" method="get">
+                <button type="submit" class="btn btn-secondary">戻る</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

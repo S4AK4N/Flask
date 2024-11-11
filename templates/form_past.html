@@ -1,58 +1,26 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>投稿内容一覧</h2>
-<table>
-    <tr>
-        <th>名前</th>
-        <th>投稿</th>
-    </tr>
-    {% for past in pasts %}
-        {% set column = past.rstrip().split(",") %}
-        <tr>
-            {% for item in column %}
-                <td>{{ item.strip() }}</td>
-            {% endfor %}
-        </tr>
-    {% endfor %}
-</table>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">投稿内容一覧</h2>
 
-<!--CSSの定義-->
-<style>
-    /* テーブル全体のスタイル */
-    table {
-        width: 50%;
-        margin-top: 20px;
-        border-collapse: collapse;
-        font-family: Arial, sans-serif;
-    }
-
-    /* テーブルヘッダーのスタイル */
-    th {
-        background-color: #4a90e2;
-        color: white;
-        padding: 10px;
-        text-align: left;
-        border: 1px solid #ddd;
-    }
-
-    /* テーブルセルのスタイル */
-    td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-
-    /* 偶数行に色をつける */
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-
-    /* 見出しのスタイル */
-    h2 {
-        font-weight: bold;
-        font-size: 24px;
-        color: #333;
-    }
-</style>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>名前</th>
+                    <th>投稿</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for past in pasts %}
+                    {% set column = past.rstrip().split(",") %}
+                    <tr>
+                        {% for item in column %}
+                            <td>{{ item.strip() }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

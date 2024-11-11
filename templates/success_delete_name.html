@@ -1,12 +1,17 @@
 {% extends "layout.html" %}
+
 {% block content %}
-<h1>正常に削除できました</h1>
-<p> 名前：{{name}}</p>
+    <div class="container mt-5">
+        <h1 class="text-center text-success mb-4">正常に削除できました</h1>
 
-<form action ="/form" method="get">
-    <button type="submit">戻る</button>
-</form>
+        <div class="alert alert-success text-center">
+            <p><strong>削除した名前：</strong>{{ name }}</p>
+        </div>
 
-
-
+        <div class="text-center">
+            <form action="/form" method="get">
+                <button type="submit" class="btn btn-secondary">戻る</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}
