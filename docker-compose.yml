@@ -1,15 +1,10 @@
 services:
   web:
     build: .
-    ports:
-      - "5000:5000"
     volumes:
       - .:/app  # ホストのカレントディレクトリをコンテナの /app にマウント
     environment:
       - FLASK_ENV=development  # デバッグモードを有効化
-    depends_on:
-      - redis
-    command: flask run --host=0.0.0.0
-
-  redis:
-    image: redis
+    command: flask run --host=0.0.0.0  # 外部からもアクセスできるように設定
+    ports:
+      - "5000:5000"  # ホストの5000ポートとコンテナの5000ポートを接続

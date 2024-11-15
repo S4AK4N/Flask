@@ -10,8 +10,5 @@ COPY . /app
 # requirements.txtで指定された必要なパッケージをインストール
 RUN pip install -r requirements.txt
 
-# ポートの公開
-EXPOSE 5000
-
-# コンテナ起動時にFlaskアプリケーションを実行
-CMD ["flask", "run", "--host=0.0.0.0"]
+# コンテナ起動時にFlaskアプリケーションを実行（ローカルホストで実行）
+CMD ["flask", "run", "--host=127.0.0.1"]
