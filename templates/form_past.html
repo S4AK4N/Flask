@@ -16,6 +16,11 @@
                     <tr>
                         <td>{{ past.name }}</td>
                         <td>{{ past.article }}</td>
+                        <td>
+                            <form method="POST" action="/delete_post/{{past.id}}">
+                            <button type="submit" class="btn btn-danger btn-sm">削除</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
