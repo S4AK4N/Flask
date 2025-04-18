@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template, request
 from components.views.Top.top import views as top_routes
-from components.views.NameList.form import form_routes
-from components.views.NameDelete.delete_name_page import delete_routes as delete_page_routes
-from components.views.NameDelete.delete_name import delete_routes as delete_action_routes
-from components.views.NameRegister.register_name_page import register_routes as register_name_page_routes
-from components.views.NameRegister.register_name import register_routes as register_name_routes
+from components.views.TaskList.form import form_routes
+from components.views.TaskNameDelete.delete_name_page import delete_routes as delete_page_routes
+from components.views.TaskNameDelete.delete_name import delete_routes as delete_action_routes
+from components.views.TaskNameRegister.register_name_page import register_routes as register_name_page_routes
+from components.views.TaskNameRegister.register_name import register_routes as register_name_routes
 from components.views.Post.result import post_routes as result_routes
 from components.views.Post.past import past_routes
 # viewsをインスタンス化
