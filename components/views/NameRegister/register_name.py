@@ -1,15 +1,10 @@
-# components/views/NameRegister/register.py
-
 from flask import Blueprint, render_template, request
-register_routes = Blueprint("register_routes", __name__)
 
-@register_routes.route("/name_registration")
-def name_registration():
-    try:
-        return render_template("name_registration.html")
-    except Exception as e:
-        return render_template("Error.html", Error="名前登録のレダリング中にエラーが発生しました")
+register_routes = Blueprint("register_name_routes", __name__)
 
+# ===============================
+# NOTE: 名前登録処理（POST）
+# ===============================
 @register_routes.route("/registration", methods=["POST"])
 def registration():
     try:
