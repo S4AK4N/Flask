@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template, request
+from components.models.model import Name
+from components.models.db import db
 
 delete_routes = Blueprint("delete_action_routes", __name__)
 
@@ -8,23 +10,17 @@ delete_routes = Blueprint("delete_action_routes", __name__)
 @delete_routes.route("/delete_name", methods=["POST"])
 def delete_name():
     try:
-        names = request.form.get("name")
+        name_to_delete = request.form.get("name")
 
-        # ファイルを読み込んでリスト化
-        with open("names.txt", "r", encoding="utf-8") as file:
-            file_content = file.readlines()
+        target = Name.query.filter_by(name=name_to_delete).first()
 
-        # 名前がリストに含まれているか確認し、削除
-        if names + "\n" in file_content:
-            file_content.remove(names + "\n")
-
-            # ファイルを上書きして変更を保存
-            with open("names.txt", "w", encoding="utf-8") as file:
-                file.writelines(file_content)
-
-            return render_template("success_delete_name.html", name=names)
+        if target:
+            db.session.delete(target)
+            db.session.commit()
+            return render_template("success_delete_name.html", name=name_to_delete)
         else:
-            return render_template("cant_delete_name.html", name=names)
+            return render_template("cant_delete_name.html", name=name_to_delete)
+
 
     except Exception as e:
         print(f"{e}を検知")
