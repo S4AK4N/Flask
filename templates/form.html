@@ -7,8 +7,8 @@
             <div class="mb-3">
                 <label for="name" class="form-label">タスク名</label>
                 <select name="name" class="form-select" id="name">
-                    {% for name in names %}
-                        <option value="{{ name }}">{{ name }}</option>
+                    {% for name in task_names %}
+                        <option value="{{ name.name }}">{{ name.name }}</option>
                     {% endfor %}
                 </select>
             </div>
