@@ -1,14 +1,14 @@
-# Pythonランタイムを親イメージとして使用
-FROM python:3.12.3
+# Pythonイメージ
+FROM python:3.13.3-slim
 
-# 作業ディレクトリを/appに設定
-WORKDIR /app
+# 作業ディレクトリ
+WORKDIR /FLASK
 
-# 現在のディレクトリの内容をコンテナ内の/appにコピー
-COPY . /app
+# 依存関係
+COPY  requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+# アプリケーションのコードをコンテナにコピー
+COPY . .
 
-# requirements.txtで指定された必要なパッケージをインストール
-RUN pip install -r requirements.txt
-
-# コンテナ起動時にFlaskアプリケーションを実行（ローカルホストで実行）
-CMD ["flask", "run", "--host=127.0.0.1"]
+# Flaskアプリ起動
+CMD ["python","app.py"]
