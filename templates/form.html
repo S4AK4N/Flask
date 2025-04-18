@@ -2,10 +2,10 @@
 
 {% block content %}
     <div class="container mt-5">
-        <h1 class="text-center mb-4">掲示板投稿フォーム</h1>
+        <h1 class="text-center mb-4">タスク投稿フォーム</h1>
         <form action="/result" method="post">
             <div class="mb-3">
-                <label for="name" class="form-label">名前</label>
+                <label for="name" class="form-label">タスク名</label>
                 <select name="name" class="form-select" id="name">
                     {% for name in names %}
                         <option value="{{ name }}">{{ name }}</option>
@@ -14,8 +14,8 @@
             </div>
             
             <div class="mb-3">
-                <label for="article" class="form-label">投稿</label>
-                <input type="text" name="article" class="form-control" id="article" placeholder="ここに投稿を入力">
+                <label for="article" class="form-label">内容</label>
+                <input type="text" name="article" class="form-control" id="article" placeholder="ここに内容を入力">
             </div>
 
             <div class="mb-3 text-center">
@@ -24,10 +24,10 @@
         </form>
 
         <div class="text-center mt-4">
-            <p><a href="/past" class="btn btn-link">過去投稿へ</a></p>
-            <p><a href="/name_registration" class="btn btn-link">名前登録フォームへ</a></p>
+            <p><a href="/past" class="btn btn-link">タスク一覧へ</a></p>
+            <p><a href="/name_registration" class="btn btn-link">タスク名登録フォームへ</a></p>
             <p><a href="/" class="btn btn-link">Topページへ</a></p>
-            <p><a href="/delete_name_form" class="btn btn-link">名前削除フォーム</a></p>
+            <p><a href="/delete_name_form" class="btn btn-link">タスク名削除フォーム</a></p>
         </div>
     </div>
 {% endblock %}

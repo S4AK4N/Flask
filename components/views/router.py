@@ -7,7 +7,7 @@ from components.views.NameRegister.register_name_page import register_routes as 
 from components.views.NameRegister.register_name import register_routes as register_name_routes
 from components.views.Post.result import post_routes as result_routes
 from components.views.Post.past import past_routes
-# viewsをインスタン化
+# viewsをインスタンス化
 views = Blueprint("views", __name__)
 
 # Topページ
