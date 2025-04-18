@@ -13,10 +13,9 @@
             </thead>
             <tbody>
                 {% for past in pasts %}
-                    {% set column = past.rstrip().split(",") %}
                     <tr>
-                        <td>{{ column[1].strip() }}</td>  <!-- 投稿内容 -->
-                        <td>{{ column[0].strip() }}</td>  <!-- 名前 -->
+                        <td>{{ past.name }}</td>
+                        <td>{{ past.article }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
