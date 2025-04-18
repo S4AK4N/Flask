@@ -1,6 +1,10 @@
 # Pythonイメージ
 FROM python:3.13.3-slim
 
+
+# sqlite3を追加
+RUN apt-get update && apt-get install -y sqlite3
+
 # 作業ディレクトリ
 WORKDIR /FLASK
 
