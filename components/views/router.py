@@ -7,6 +7,7 @@ from components.views.TaskNameRegister.register_name_page import register_routes
 from components.views.TaskNameRegister.register_name import register_routes as register_name_routes
 from components.views.Post.result import post_routes as result_routes
 from components.views.Post.past import past_routes
+from components.views.Delete_Post.delete_post import delete_post_routes
 # viewsをインスタンス化
 views = Blueprint("views", __name__)
 
@@ -26,3 +27,5 @@ views.register_blueprint(delete_action_routes)
 views.register_blueprint(result_routes)
 # 過去書き込み表示
 views.register_blueprint(past_routes)
+# タスクの削除
+views.register_blueprint(delete_post_routes)
