@@ -5,6 +5,9 @@ from components.models.db import db
 
 edit_post_routes = Blueprint("edit_post_routes", __name__)
 
+# ===============================
+# NOTE: 投稿編集処理
+# ===============================
 @edit_post_routes.route("/edit/<int:id>", methods=["GET", "POST"])
 def edit_post(id):
     try:
