@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request
+from components.models.model import Post
 
 past_routes = Blueprint("past_routes", __name__)
 
@@ -8,8 +9,8 @@ past_routes = Blueprint("past_routes", __name__)
 @past_routes.route("/past")
 def past():
     try:
-        with open("text.txt", "r", encoding="utf-8") as file:
-            pasts = file.readlines()
+        # DBから全件取得
+        pasts = Post.query.all()  
         return render_template("form_past.html", pasts=pasts)
 
     except Exception as e:

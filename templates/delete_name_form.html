@@ -2,11 +2,11 @@
 
 {% block content %}
     <div class="container mt-5">
-        <h1 class="text-center mb-4">名前削除</h1>
+        <h1 class="text-center mb-4">タスクカテゴリの削除</h1>
 
         <form action="/delete_name" method="post" class="border p-4 rounded shadow-sm bg-light" style="max-width: 400px; margin: 0 auto;">
             <div class="mb-3">
-                <label for="names" class="form-label">名前を入力してください</label>
+                <label for="names" class="form-label">タスクカテゴリを入力してください</label>
                 <input type="text" name="name" id="names" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-danger w-100">送信する</button>

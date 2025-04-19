@@ -1,6 +1,7 @@
-# Flask,Docker練習用リポジトリ
+# ToDoアプリ
 
 ## 使用技術
+
 - **フロントエンド**: HTML (Jinja2), CSS
 - **バックエンド**: Python (Flask)
 - **開発環境**: Docker
@@ -21,69 +22,42 @@ Flaskの依存環境もこちらに記述しています。
 ## ディレクトリ構成
 
 ```
-.
+. 
 ├── Dockerfile               # Docker環境
-├── README.md                # このファイル
-├── __pycache__              # コンパイル済みファイル
-│   └── app.cpython-312.pyc
-├── app.py                   # サーバー処理記述
+├── README.md                
+├── app.py                   # サーバー,DB起動処理
 ├── docker-compose.yml       # コンテナ構成
-├── names.txt               # 入力された名前を記述（データベース代わり）
 ├── requirements.txt         # 必要ライブラリ等
-├── static                   # 静的ファイル置き場
-│   └── css
+├── instance/                # 永続化用ディレクトリ
+│   ├──  app.db              # SQLiteデータベースファイル 
+├── components/              # アプリケーション構成
+│   ├── models               # モデル定義
+│   └── views                # ビュー定義
+├── static/                  # 静的ファイル置き場
+│   └── css/
 │       ├── form.css 
 │       └── styles.css
-├── templates # 各ページ置き場
-│   ├── Error.html # エラー発生時遷移するページ
-│   ├── cant_delete_name.html # 削除したい名前がなかった時表示するページ
-│   ├── delete_name_form.html # 名前削除フォーム
-│   ├── form.html # 内容投稿フォーム               
-│   ├── form_past.html # 過去に投稿した内容を表示するフォーム
-│   ├── form_result.html   # 内容投稿をした際に投稿内容を表示するページ
-│   ├── index.html # トップページ
-│   ├── layout.html # テンプレート
-│   ├── name_registration.html # 名前登録フォーム
-│   ├── name_result.html    # 登録(送信)した名前を表示するページ
-│   └── success_delete_name.html # 正常に名前が削除できた際に表示するページ
-└── text.txt
+└── templates/               # 各ページテンプレート
 ```
 
-## ファイルについて
-<strong>【names.txt】【text.txt】を必ず作成してください。</strong>
-<br>書き込み時になどこの2つの名前のテキストファイルを参照しているので名前も同じものでルートディレクトリの階層においてください。
+## 永続化について
 
+アプリケーションはSQLiteを使用しており、データはinstance/の `app.db` に保存されます。Dockerコンテナの内部 `/FLASK/instance` を、ホスト側 `./instance` にマウントすることで永続化を実現しています。
 
 ## 環境構築方法
 
-Docker DesktopとGitがインストールされていることが前提です。インストール方法は割愛します。
+Docker DesktopとGitがインストールされていることが前提です。
 
-まず、上記のディレクトリ構成のうち、`"myapp"` に移動してください。
-
-### 1. リポジトリをクローンし、コンテナを作成
-
-本リポジトリをクローンして、コンテナを作成します。
-
-コンテナビルド用
 ```bash
-docker-compose build
+docker-compose up --build
 ```
 
-コンテナ起動用
-```bash
-docker-compose up
-```
-うまく起動できたら、ローカルホストが立ち上がり、成功です。
-### 3. 仕様変更後の再ビルド
+上記のみで、ビルド + 起動まで一括できます。
 
-仕様などを変更したい場合は、再ビルドを行ってください。
+## 注意
 
-> **注意**: 今作ではローカルサーバーのみの使用を想定しています。仕様てきにかなり脆弱な点が多いため本番環境では絶対に使用しないでください
+> **本アプリはローカルサーバー用です**。
+> セキュリティや利用者管理がなく、本番環境での利用は控えてください。
 
 ---
-
-## 課題, 問題点, 機能紹介について
-
-[Qiitaの記事をこちらで公開しています](https://qiita.com/nanashi39/private/03132761b850291d60f1)ので、ぜひご覧ください。
-
 
