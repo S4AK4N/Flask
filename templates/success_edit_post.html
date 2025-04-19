@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-success mb-4">正常に編集できました</h1>
+    <div class="alert alert-success text-center">
+        <p><strong>編集したタスクカテゴリ：</strong>{{ post.name }}</p>
+        <p><strong>内容：</strong>{{ post.article }}</p>
+    </div>
+    <div class="text-center">
+        <form action="/past" method="get">
+            <button type="submit" class="btn btn-secondary">戻る</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
