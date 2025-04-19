@@ -7,6 +7,7 @@
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
                 <tr>
+                    <th>状態</th>
                     <th>タスクカテゴリ</th>
                     <th>内容</th>
                 </tr>
@@ -14,6 +15,19 @@
             <tbody>
                 {% for past in pasts %}
                     <tr>
+                        <td>
+                            {% if past.is_done %}
+                            ✅ 完了
+                            {% else %}
+                            ⏳ 未完了
+                            {% endif %}
+                            <form action="/toggle_done/{{ past.id }}" method="POST" style="display:inline;">
+                                <button type="submit"
+                                    class="btn btn-sm {% if past.is_done %}btn-outline-success{% else %}btn-outline-secondary{% endif %}">
+                                    {% if past.is_done %}未完了に戻す{% else %}完了にする{% endif %}
+                                </button>
+                            </form>
+                        </td>
                         <td>{{ past.name }}</td>
                         <td>{{ past.article }}</td>
                         <td>
