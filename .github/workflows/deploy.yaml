@@ -1,0 +1,24 @@
+name: Deploy to EC2 on main push
+
+on:
+  push:
+    branches:
+      - main # mainブランチへのpushで発火
+
+jobs:
+  deploy:
+    name: SSH Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }} # EC2のIPかDDNS名
+          username: ubuntu # EC2のユーザー名
+          key: ${{ secrets.EC2_SSH_KEY }} # .pemの中身
+          script: |
+            cd ~/TodoApp                           # Flaskプロジェクトのパス（EC2内）
+            git pull origin main                   # 最新化
+            docker-compose down                    # 停止
+            docker-compose up -d --build           # 再ビルド & 起動
